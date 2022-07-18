@@ -2,7 +2,7 @@ import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
   up: (queryInterface: QueryInterface) => {
-    return queryInterface.addColumn("Users", "tokenVersion", {
+    return queryInterface.addColumn("users", "tokenVersion", {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 0
@@ -10,6 +10,6 @@ module.exports = {
   },
 
   down: (queryInterface: QueryInterface) => {
-    return queryInterface.removeColumn("Users", "tokenVersion");
+    return queryInterface.removeColumn("users", "tokenVersion");
   }
 };

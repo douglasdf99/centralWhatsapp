@@ -3,7 +3,7 @@ import { QueryInterface } from "sequelize";
 module.exports = {
   up: (queryInterface: QueryInterface) => {
     return queryInterface.bulkInsert(
-      "Settings",
+      "settings",
       [
         {
           key: "userCreation",

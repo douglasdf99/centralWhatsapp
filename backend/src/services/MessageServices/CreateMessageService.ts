@@ -2,6 +2,7 @@ import { getIO } from "../../libs/socket";
 import Message from "../../models/Message";
 import Ticket from "../../models/Ticket";
 import Whatsapp from "../../models/Whatsapp";
+import { logger } from "../../utils/logger";
 
 interface MessageData {
   id: string;
@@ -20,7 +21,10 @@ interface Request {
 const CreateMessageService = async ({
   messageData
 }: Request): Promise<Message> => {
+  logger.info(`upsert`);
+
   await Message.upsert(messageData);
+  logger.info(`findByPk`);
 
   const message = await Message.findByPk(messageData.id, {
     include: [
@@ -44,6 +48,9 @@ const CreateMessageService = async ({
       }
     ]
   });
+
+  logger.info(`finish findByPk`);
+
 
   if (!message) {
     throw new Error("ERR_CREATING_MESSAGE");

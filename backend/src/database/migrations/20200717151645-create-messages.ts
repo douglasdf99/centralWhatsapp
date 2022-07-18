@@ -2,14 +2,14 @@ import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
   up: (queryInterface: QueryInterface) => {
-    return queryInterface.createTable("Messages", {
+    return queryInterface.createTable("messages", {
       id: {
         type: DataTypes.STRING,
         primaryKey: true,
         allowNull: false
       },
       body: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false
       },
       ack: {
@@ -28,15 +28,19 @@ module.exports = {
       mediaUrl: {
         type: DataTypes.STRING
       },
-      userId: {
-        type: DataTypes.INTEGER,
-        references: { model: "Users", key: "id" },
-        onUpdate: "CASCADE",
-        onDelete: "SET NULL"
+      fromMe:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      },
+      isDeleted: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
       },
       ticketId: {
         type: DataTypes.INTEGER,
-        references: { model: "Tickets", key: "id" },
+        references: { model: "tickets", key: "id" },
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
         allowNull: false
@@ -53,6 +57,6 @@ module.exports = {
   },
 
   down: (queryInterface: QueryInterface) => {
-    return queryInterface.dropTable("Messages");
+    return queryInterface.dropTable("messages");
   }
 };

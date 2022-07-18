@@ -2,7 +2,7 @@ import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
   up: (queryInterface: QueryInterface) => {
-    return queryInterface.createTable("Settings", {
+    return queryInterface.createTable("settings", {
       key: {
         type: DataTypes.STRING,
         primaryKey: true,
@@ -24,6 +24,6 @@ module.exports = {
   },
 
   down: (queryInterface: QueryInterface) => {
-    return queryInterface.dropTable("Settings");
+    return queryInterface.dropTable("settings");
   }
 };

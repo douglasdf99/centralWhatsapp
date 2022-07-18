@@ -2,7 +2,7 @@ import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
   up: (queryInterface: QueryInterface) => {
-    return queryInterface.createTable("Whatsapps", {
+    return queryInterface.createTable("whatsapps", {
       id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -10,10 +10,10 @@ module.exports = {
         allowNull: false
       },
       session: {
-        type: DataTypes.TEXT
+        type: DataTypes.STRING
       },
       qrcode: {
-        type: DataTypes.TEXT
+        type: DataTypes.STRING
       },
       status: {
         type: DataTypes.STRING
@@ -23,6 +23,16 @@ module.exports = {
       },
       plugged: {
         type: DataTypes.BOOLEAN
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
+      default: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -36,6 +46,6 @@ module.exports = {
   },
 
   down: (queryInterface: QueryInterface) => {
-    return queryInterface.dropTable("Whatsapps");
+    return queryInterface.dropTable("whatsapps");
   }
 };

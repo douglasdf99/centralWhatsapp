@@ -2,7 +2,7 @@ import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
   up: (queryInterface: QueryInterface) => {
-    return queryInterface.addColumn("Users", "profile", {
+    return queryInterface.addColumn("users", "profile", {
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "admin"
@@ -10,6 +10,6 @@ module.exports = {
   },
 
   down: (queryInterface: QueryInterface) => {
-    return queryInterface.removeColumn("Users", "profile");
+    return queryInterface.removeColumn("users", "profile");
   }
 };

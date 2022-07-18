@@ -3,7 +3,7 @@ import { QueryInterface } from "sequelize";
 module.exports = {
   up: (queryInterface: QueryInterface) => {
     return queryInterface.bulkInsert(
-      "Users",
+      "users",
       [
         {
           name: "Administrador",

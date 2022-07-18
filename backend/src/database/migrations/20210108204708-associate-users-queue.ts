@@ -2,7 +2,7 @@ import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
   up: (queryInterface: QueryInterface) => {
-    return queryInterface.createTable("UserQueues", {
+    return queryInterface.createTable("userQueues", {
       userId: {
         type: DataTypes.INTEGER,
         primaryKey: true
@@ -23,6 +23,6 @@ module.exports = {
   },
 
   down: (queryInterface: QueryInterface) => {
-    return queryInterface.dropTable("UserQueues");
+    return queryInterface.dropTable("userQueues");
   }
 };

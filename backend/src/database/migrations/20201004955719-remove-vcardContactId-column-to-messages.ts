@@ -2,13 +2,13 @@ import { QueryInterface, DataTypes } from "sequelize";
 
 module.exports = {
   up: (queryInterface: QueryInterface) => {
-    return queryInterface.removeColumn("Messages", "vcardContactId");
+    return queryInterface.removeColumn("messages", "vcardContactId");
   },
 
   down: (queryInterface: QueryInterface) => {
-    return queryInterface.addColumn("Messages", "vcardContactId", {
+    return queryInterface.addColumn("messages", "vcardContactId", {
       type: DataTypes.INTEGER,
-      references: { model: "Contacts", key: "id" },
+      references: { model: "contacts", key: "id" },
       onUpdate: "CASCADE",
       onDelete: "CASCADE"
     });
