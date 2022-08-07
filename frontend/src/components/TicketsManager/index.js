@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
   tabsHeader: {
     flex: "none",
-    backgroundColor: "#eee",
+    backgroundColor: "#202c33",
   },
 
   settingsIcon: {
@@ -54,13 +54,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    background: "#fafafa",
+    background: "#202c33",
     padding: theme.spacing(1),
   },
 
   serachInputWrapper: {
     flex: 1,
-    background: "#fff",
+    background: "#2a3942",
     display: "flex",
     borderRadius: 40,
     padding: 4,

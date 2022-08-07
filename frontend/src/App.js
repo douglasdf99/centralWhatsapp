@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+
 import Routes from "./routes";
 import "react-toastify/dist/ReactToastify.css";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import { ptBR } from "@material-ui/core/locale";
+import themes from './themes';
 
 const App = () => {
   const [locale, setLocale] = useState();
@@ -21,7 +24,24 @@ const App = () => {
         },
       },
       palette: {
-        primary: { main: "#2576d2" },
+        background: {
+          default : '#0a1014',
+          paper : '#111b21'
+        },
+        text:{
+          primary: '#d1d7db',
+          secondary: 'rgba(255, 255, 255, 0.7)',
+          disabled: 'rgba(255, 255, 255, 0.5)'
+        },
+        action: {
+          active:'#fff',
+          hover: 'rgba(255, 255, 255, 0.08)',
+          selected: 'rgba(255, 255, 255, 0.16)',
+          disabled: 'rgba(255, 255, 255, 0.3)',
+          disabledBackground: 'rgba(255, 255, 255, 0.12)'
+
+        },
+        primary: { main: "#00a884" },
       },
     },
     locale
@@ -39,6 +59,8 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
+            <CssBaseline />
+
       <Routes />
     </ThemeProvider>
   );

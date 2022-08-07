@@ -76,10 +76,11 @@ const useStyles = makeStyles((theme) => ({
       top: 0,
       right: 0,
     },
+   
 
     whiteSpace: "pre-wrap",
-    backgroundColor: "#ffffff",
-    color: "#303030",
+    backgroundColor: "#202c33",
+    color: "#eee",
     alignSelf: "flex-start",
     borderTopLeftRadius: 0,
     borderTopRightRadius: 8,
@@ -89,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 5,
     paddingTop: 5,
     paddingBottom: 0,
-    boxShadow: "0 1px 1px #b3b3b3",
+    boxShadow: "0 1px 1px #1f2c33",
   },
 
   quotedContainerLeft: {
@@ -132,8 +133,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     whiteSpace: "pre-wrap",
-    backgroundColor: "#dcf8c6",
-    color: "#303030",
+    backgroundColor: "#005c4b",
+    color: "#eee",
     alignSelf: "flex-end",
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
@@ -143,7 +144,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 5,
     paddingTop: 5,
     paddingBottom: 0,
-    boxShadow: "0 1px 1px #b3b3b3",
+    boxShadow: "0 1px 1px #1f2c33",
   },
 
   quotedContainerRight: {
@@ -187,6 +188,10 @@ const useStyles = makeStyles((theme) => ({
   textContentItem: {
     overflowWrap: "break-word",
     padding: "3px 80px 6px 6px",
+    "& a": {
+      color: '#53bdeb',
+      textDecoration: 'none'
+     },
   },
 
   textContentItemDeleted: {

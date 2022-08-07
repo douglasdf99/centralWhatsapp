@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import clsx from "clsx";
+import Logo from "../assets/logo.png";
 
 import {
   makeStyles,
@@ -12,6 +13,7 @@ import {
   MenuItem,
   IconButton,
   Menu,
+  Box
 } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
@@ -26,6 +28,7 @@ import BackdropLoading from "../components/BackdropLoading";
 import { i18n } from "../translate/i18n";
 
 const drawerWidth = 240;
+const appBarSpacer = '48';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
 
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
+    display: "flex",
+    alignItems: "center",
+    alignContent: "center",
   },
   toolbarIcon: {
     display: "flex",
@@ -69,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    paddingLeft: 10,
   },
   drawerPaper: {
     position: "relative",
@@ -165,37 +172,17 @@ const LoggedInLayout = ({ children }) => {
 
   return (
     <div className={classes.root}>
-      <Drawer
-        variant={drawerVariant}
-        className={drawerOpen ? classes.drawerPaper : classes.drawerPaperClose}
-        classes={{
-          paper: clsx(
-            classes.drawerPaper,
-            !drawerOpen && classes.drawerPaperClose
-          ),
-        }}
-        open={drawerOpen}
-      >
-        <div className={classes.toolbarIcon}>
-          <IconButton onClick={() => setDrawerOpen(!drawerOpen)}>
-            <ChevronLeftIcon />
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          <MainListItems drawerClose={drawerClose} />
-        </List>
-        <Divider />
-      </Drawer>
+    
       <UserModal
         open={userModalOpen}
         onClose={() => setUserModalOpen(false)}
         userId={user?.id}
       />
       <AppBar
-        position="absolute"
+         position="absolute"
+         color="inherit"
+         
         className={clsx(classes.appBar, drawerOpen && classes.appBarShift)}
-        color={process.env.NODE_ENV === "development" ? "inherit" : "primary"}
       >
         <Toolbar variant="dense" className={classes.toolbar}>
           <IconButton
@@ -210,14 +197,23 @@ const LoggedInLayout = ({ children }) => {
           >
             <MenuIcon />
           </IconButton>
+          <Box
+            component="img"
+            sx={{
+            height: 40
+            }}
+            alt="Uats"
+            src={Logo}
+        />
+          
           <Typography
-            component="h1"
-            variant="h6"
+            component="h6"
+            variant="subtitle1"
             color="inherit"
             noWrap
             className={classes.title}
           >
-            Central WhatsApp
+             - Central Atendimento
           </Typography>
           {user.id && <NotificationsPopOver />}
 
@@ -256,6 +252,29 @@ const LoggedInLayout = ({ children }) => {
           </div>
         </Toolbar>
       </AppBar>
+      <Drawer
+        variant={drawerVariant}
+        className={drawerOpen ? classes.drawerPaper : classes.drawerPaperClose}
+        classes={{
+          paper: clsx(
+            classes.drawerPaper,
+            !drawerOpen && classes.drawerPaperClose
+          ),
+        }}
+        open={drawerOpen}
+      >
+        <div className={classes.toolbarIcon}>
+          
+          <IconButton onClick={() => setDrawerOpen(!drawerOpen)}>
+            <ChevronLeftIcon />
+          </IconButton>
+        </div>
+        <Divider />
+        <List>
+          <MainListItems drawerClose={drawerClose} />
+        </List>
+        <Divider />
+      </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
 

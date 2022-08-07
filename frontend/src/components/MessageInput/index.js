@@ -41,7 +41,7 @@ const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
 const useStyles = makeStyles((theme) => ({
   mainWrapper: {
-    background: "#eee",
+    background: "#202c33",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   newMessageBox: {
-    background: "#eee",
+    background: "#202c33",
     width: "100%",
     display: "flex",
     padding: "7px",
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   messageInputWrapper: {
     padding: 6,
     marginRight: 7,
-    background: "#fff",
+    background: "#2a3942",
     display: "flex",
     borderRadius: 20,
     flex: 1,
@@ -464,6 +464,7 @@ const MessageInput = ({ ticketStatus }) => {
               <div className={classes.emojiBox}>
                 <ClickAwayListener onClickAway={(e) => setShowEmoji(false)}>
                   <Picker
+                    theme="dark"
                     perLine={16}
                     showPreview={false}
                     showSkinTones={false}

@@ -3,6 +3,7 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import LoggedInLayout from "../layout";
+
 import Dashboard from "../pages/Dashboard/";
 import Tickets from "../pages/Tickets/";
 import Signup from "../pages/Signup/";
