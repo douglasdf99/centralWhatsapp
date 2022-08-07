@@ -214,10 +214,11 @@ const QuickAnswers = () => {
             type="search"
             value={searchParam}
             onChange={handleSearch}
+            style={{ background: "#2a3942", borderRadius: 30 }}
             InputProps={{
               startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon style={{ color: "gray" }} />
+                <InputAdornment position="start" >
+                  <SearchIcon style={{ paddingLeft: 10, color: "gray" }} />
                 </InputAdornment>
               ),
             }}

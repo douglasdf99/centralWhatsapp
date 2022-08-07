@@ -3,6 +3,7 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import LoggedInLayout from "../layout";
+import LoggedInLayoutMessager from "../layout/messager";
 
 import Dashboard from "../pages/Dashboard/";
 import Tickets from "../pages/Tickets/";
@@ -25,6 +26,7 @@ const Routes = () => {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+           
           <WhatsAppsProvider>
             <LoggedInLayout>
               <Route exact path="/" component={Dashboard} isPrivate />

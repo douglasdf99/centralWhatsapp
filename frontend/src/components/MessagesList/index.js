@@ -96,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
   quotedContainerLeft: {
     margin: "-3px -80px 6px -6px",
     overflow: "hidden",
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "#111b21",
     borderRadius: "7.5px",
     display: "flex",
     position: "relative",

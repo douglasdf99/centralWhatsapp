@@ -23,6 +23,14 @@ const App = () => {
           backgroundColor: "#e8e8e8",
         },
       },
+      overrides: {
+        MuiInputBase: {
+            root: {
+                backgroundColor: "#2a3942",
+                borderRadius: '30px',       
+            },
+        }
+    },
       palette: {
         background: {
           default : '#0a1014',
@@ -41,6 +49,8 @@ const App = () => {
           disabledBackground: 'rgba(255, 255, 255, 0.12)'
 
         },
+        input: { background: {default:'#eee'}},
+
         primary: { main: "#00a884" },
       },
     },
