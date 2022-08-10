@@ -9,6 +9,8 @@ authRoutes.post("/signup", UserController.store);
 
 authRoutes.post("/login", SessionController.store);
 
+authRoutes.post("/user", SessionController.get);
+
 authRoutes.post("/refresh_token", SessionController.update);
 
 authRoutes.delete("/logout", isAuth, SessionController.remove);

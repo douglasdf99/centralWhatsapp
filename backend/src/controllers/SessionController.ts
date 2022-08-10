@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import AppError from "../errors/AppError";
 
 import AuthUserService from "../services/UserServices/AuthUserService";
+import GetUserService from "../services/UserServices/GetUserService";
 import { SendRefreshToken } from "../helpers/SendRefreshToken";
 import { RefreshTokenService } from "../services/AuthServices/RefreshTokenService";
 
@@ -17,6 +18,19 @@ export const store = async (req: Request, res: Response): Promise<Response> => {
 
   return res.status(200).json({
     token,
+    user: serializedUser
+  });
+};
+
+export const get = async (req: Request, res: Response): Promise<Response> => {
+  const { email, password } = req.body;
+
+  const { serializedUser } = await GetUserService({
+    email,
+    password
+  });
+
+  return res.status(200).json({
     user: serializedUser
   });
 };
