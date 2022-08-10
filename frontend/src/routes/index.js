@@ -52,14 +52,6 @@ const Routes = () => {
               />
               <Route exact path="/Settings" component={Settings} isPrivate />
               <Route exact path="/Queues" component={Queues} isPrivate />
-              <Route
-                exact
-                path="/automations"
-                component={QuickAnswers}
-                isPrivate
-              />
-              <Route exact path="/Settings" component={Settings} isPrivate />
-              <Route exact path="/Queues" component={Queues} isPrivate />
             </LoggedInLayout>
           </WhatsAppsProvider>
         </Switch>

@@ -103,11 +103,6 @@ const MainListItems = (props) => {
         primary={i18n.t("mainDrawer.listItems.quickAnswers")}
         icon={<QuestionAnswerOutlinedIcon />}
       />
-      <ListItemLink
-        to="/automations"
-        primary={i18n.t("mainDrawer.listItems.automations")}
-        icon={<AtmIcon />}
-      />
       <Can
         role={user.profile}
         perform="drawer-admin-items:view"
