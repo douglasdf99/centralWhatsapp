@@ -29,7 +29,9 @@ const GetUserService = async ({ email }: Request): Promise<Response> => {
     where: { email },
     include: ["queues"]
   });
-
+  if (!user) {
+    throw new AppError("ERR_INVALID_CREDENTIALS", 401);
+  }
   const serializedUser = SerializeUser(user);
 
   return {
