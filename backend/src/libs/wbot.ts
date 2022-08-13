@@ -42,17 +42,19 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<Session> => {
       if (whatsapp && whatsapp.session) {
         sessionCfg = JSON.parse(whatsapp.session);
       }
-	  
-	  const wbot: Session = new Client({
+
+      const wbot: Session = new Client({
         session: sessionCfg,
-        authStrategy: new LocalAuth({clientId: 'bd_'+whatsapp.id}),
-        puppeteer: { 
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        authStrategy: new LocalAuth({ clientId: `bd_${whatsapp.id}` }),
+        puppeteer: {
+          args: ["--no-sandbox", "--disable-setuid-sandbox"],
           executablePath: process.env.CHROME_BIN || undefined
-      },
+        }
       });
 
-      wbot.initialize();
+      logger.info("Session: initialize");
+
+      wbot.initialize().then(() => logger.info("Session: initialize"));
 
       wbot.on("qr", async qr => {
         logger.info("Session:", sessionName);
@@ -73,9 +75,9 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<Session> => {
 
       wbot.on("authenticated", async session => {
         logger.info(`Session: ${sessionName} AUTHENTICATED`);
-//        await whatsapp.update({
-//          session: JSON.stringify(session)
-//        });
+        //        await whatsapp.update({
+        //          session: JSON.stringify(session)
+        //        });
       });
 
       wbot.on("auth_failure", async msg => {

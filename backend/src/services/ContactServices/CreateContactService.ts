@@ -43,4 +43,33 @@ const CreateContactService = async ({
   return contact;
 };
 
+export const FindorCreateContactService = async ({
+  name,
+  number,
+  email = "",
+  extraInfo = []
+}: Request): Promise<Contact> => {
+  const numberExists = await Contact.findOne({
+    where: { number }
+  });
+
+  if (numberExists) {
+    return numberExists;
+  }
+
+  const contact = await Contact.create(
+    {
+      name,
+      number,
+      email,
+      extraInfo
+    },
+    {
+      include: ["extraInfo"]
+    }
+  );
+
+  return contact;
+};
+
 export default CreateContactService;
